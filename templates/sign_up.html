@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+            <title>Welcome to Holistic Wellness</title>
+        <link rel="stylesheet" href="/static/css/style.css" />
+    </head>
+        <img class="health" src="/static/health.jpg"/>
+        <h1 class="heading">Holistic Wellness</h1>
+    </header>
+    <body class="bg" background="/static/health-bg.jpg">
+        <main class="details">
+            <div class="box">
+            <h1>Create a new account</h1>
+            {% if message %}
+                <p class="error">Please check the details you entered</p>
+                <p class="error">
+                    Please try again!</p>
+                {% endif %}
+            <p>
+            <form action="/register/new_user" autocomplete="off" method="POST">
+                <label >Enter your name:</label>
+                <input type="text" autocomplete="off" name="name" class="input"/>
+                <label >Enter your age:</label>
+                <input type="text" autocomplete="off" name="age" class="input"/>
+                <label >Select your gender:</label>
+                <select class="input" name="gender">
+                    <option selected>Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
+                  </select>
+                <label >Enter your email address:</label>
+                <input type="text" autocomplete="off" name="email"  class="input"/>
+                <label >Enter your password:</label>
+                <input type="text" autocomplete="off" name="password1" class="input"   />
+                <label >Re-enter your password:</label>
+                <input type="password" autocomplete="off" name="password2" class="input"   />
+            <h2>Your almost done!!</h1>
+                <label >Enter your height(in meters):</label>
+                <input type="text" autocomplete="off" name="height" class="input"   />
+                <label >Enter your weight:</label>
+                <input type="text" autocomplete="off" name="weight" class="input"   />
+                <p></p>
+                <button type="submit">Sign up</button>
+            </p>
+            </form>
+        </div>
+        </main>
+
+    </body>
+</html>

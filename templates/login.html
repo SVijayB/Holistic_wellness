@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+            <title>Welcome to Holistic Wellness</title>
+        <link rel="stylesheet" href="/static/css/style.css" />
+
+    </head>
+        <img class="health" src="/static/health.jpg"/>
+        <h1 class="heading">Holistic Wellness</h1>
+        <body background="/static/health-bg.jpg">
+        <main>
+            <div class="box">
+            <h1>User login</h1>
+            <p>
+            <form action="/login" autocomplete="off" method="post">
+                {% if message %}
+                <p class="error">Invalid email address or password  </p>
+                <p class="error">
+                    Please try again!</p>
+                {% endif %}
+                <label >Email address:</label>
+                <input autocomplete="off" type="text" name="email" class="input"/>
+                <label >Password:</label>
+                <input autocomplete="off" type="password" name="password"  class="input"   />
+                <p></p>
+                <button type="submit" class="login">Login</button>
+            </form>
+            <a class= "sign_up" href="/reset_password">Forgot password</a>
+            <P></P>
+                <a class= "sign_up" href="/register">Create new account</a>
+            </p>
+            
+        </div>
+        </main>
+
+    </body>
+</html>

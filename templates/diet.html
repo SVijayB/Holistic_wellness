@@ -1,0 +1,179 @@
+<html>
+<head>
+    <title>Welcome to Holistic Wellness</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<h1 class="heading">Holistic Wellness</h1>
+    <body>
+        {% block content %}
+            <h1 class="display-6" style="color:red;"><b>Welcome {{ name }}</b></h1>
+        {% endblock %}  
+
+  <div class="card text-center">
+    <div class="card-header">
+    <div class="check">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="/login/homepage">Home page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" >Diet plan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login/exercise">Exercise plan</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login/help">More</a>
+          </li>
+      </ul>
+    </div>
+    <h1>Look down the menu and select the food you had</h1>
+    {% if message %}
+    <p class="display-5" style="color:red;">Submitted successfully!!! </p>
+  {% endif %}
+    <p>
+      <b>
+    <div class="box2">
+        <ul class="list-inline">
+          <img class="food_img" src="/static/idly.jpg"/>
+          <h1>BREAKFAST</h1>
+          <br><li>Bread_butter(2 breads)</li>
+          <li>Chapathi(2)</li>
+          <li>Poori(3)</li>
+          <li>Paratha(2)</li>
+          <li>Idly(2)</li>
+          <li>Dosa(2)</li>
+          <li>Poha(1 bowl)</li>
+          <li>Upma(1 bowl)</li>
+          <li>Tea</li>
+          <li>Coffee</li>
+          <li>Milk</li>
+          <li>Boost/Horlicks</li>
+          <img class="food_img" src="/static/dosa.jpg"/>
+        </ul>
+      </div>
+      <div class="box2">
+        <ul class="list-inline">
+          <img class="chaat" src="/static/salad.jpg"/>
+          <h1>LUNCH AND DINNER</h1>
+          <br><li>Rice_sambar(1 bowl)</li>
+          <li>Rice_curd(1 bowl)</li>
+          <li>Roti_curry(1 bowl)</li>
+          <li>salad(1 bowl)</li>
+          <li>fried rice(1 bowl)</li>
+          <li>Noodles(1 plate)</li>
+          <li>Nan_paneer(1 plate)</li>
+          <li>Pizza(3 quarters)</li>
+          <li>Pasta(1 plate)</li>
+          <li>Burger(1)</li>
+          <img class="food_img" src="/static/roti.jpg"/>
+       </ul>
+      </div>
+      <div class="box2">
+        <ul class="list-inline">
+          <img class="chaat" src="/static/gobi.jpeg"/>
+          <h1>STARTERS & BEVERAGES</h1>
+          <li>Soup(1 cup)</li>
+          <li>Gobi_manchurian(half plate)</li>
+          <li>Fries(half plate)</li>
+          <li>Paneer_fry(half plate)</li>
+          <li>Pakoda(half plate)</li>
+          <li>Soft_drink</li>
+          <li>Badam_milk</li>
+          <li>Ice_cream</li>
+          <li>Milkshake</li>
+          <li>Fruit-juice</li>
+          <p></p>
+          <img class="chaat" src="/static/milkshake.jpg"/>
+       </ul>
+      </div>
+      <div class="box2">
+        <ul class="list-inline">
+          <img class="food_img" src="/static/pav.jpg"/>
+          <h1 >CHAATS AND SNACKS</h1>
+          <br><li>Samosa</li>
+          <li>Bhel_Puri</li>          
+          <li>Pani_puri</li>
+          <li>Sev_puri</li>
+          <li>Vada_pav</li>
+          <li>Masala_puri</li>
+          <li>Pav_Bhaji</li>
+          <li>Biscuit</li>
+          <li>Cake</li>
+          <li>Vada</li>
+          <li>Bhajji</li>
+          <img class="food_img" src="/static/pani.jpg"/>
+        </b>
+        </ul>
+      </div>    
+      <div class="food_input">
+      <form action="/login/diet/update" autocomplete="off" method="POST">
+        <select class="input" name="calories">
+          <option selected>Select</option>
+          <option value="70">Bread_butter</option>
+          <option value="80">Chapathi</option>
+          <option value="85">Poori</option>
+          <option value="120">Paratha</option>
+          <option value="60">Idly</option>
+          <option value="80">Dosa</option>
+          <option value="120">Poha</option>
+          <option value="90">Upma</option>
+          <option value="75">Soup</option>
+          <option value="120">Gobi_manchurian</option>
+          <option value="100">Fries</option>
+          <option value="110">Paneer_fry</option>
+          <option value="100">Pakoda</option>
+          <option value="45">Tea</option>
+          <option value="40">Coffee</option>
+          <option value="60">Milk</option>
+          <option value="120">Boost/horlicks</option>
+          <option value="90">Soft_drink</option>
+          <option value="135">Badam_milk</option>
+          <option value="200">Ice_cream</option>
+          <option value="220">Milkshake</option>
+          <option value="250">Rice_sambar</option>
+          <option value="200">Rice_curd</option>
+          <option value="220">Roti_curry</option>
+          <option value="100">salad</option>
+          <option value="175">Fried rice</option>
+          <option value="210">Noodles</option>
+          <option value="300">Nan_paneer</option>
+          <option value="270">Pizza</option>
+          <option value="130">Pasta</option>
+          <option value="290">Burger</option>
+          <option value="100">Samosa</option>
+          <option value="150">Bhel_Puri</option>
+          <option value="160">Pani_puri</option>
+          <option value="130">Sev_puri</option>
+          <option value="180">Vada_pav</option>
+          <option value="160">Masala_puri</option>
+          <option value="200">Pav_Bhaji</option>
+          <option value="100">Biscuit</option>
+          <option value="110">Vada</option>
+          <option value="60">Fruit-juice</option>
+          <option value="100">Bhajji</option>
+          <option value="170">Cake</option>
+          
+        </select>
+        <form action="/login/diet/update" autocomplete="off" method="POST">
+          <select class="input" name="quantity">
+            <option selected>Quantity</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        <button type="submit">Submit</button>
+
+      </div>
+      </p>
+    </div>
+  </form>
+  </body>
+</html>

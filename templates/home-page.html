@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>Welcome to Holistic Wellness</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<h1 class="heading">Holistic Wellness</h1>
+    <body>
+        {% block content %}
+            <h1 class="display-6" style="color:red;"><b>Welcome {{ name }}</b></h1>
+      {% endblock %} 
+ <main class="back">
+           <div class="card text-center">
+            <div class="card-header">
+            <div class="check">
+              <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active">Home page</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login/diet">Diet plan</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login/exercise">Exercise plan</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login/profile">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login/help">More</a>
+                  </li>
+              </ul>
+            </div>
+              <p></p>
+              <p class="lead">
+                We help people maintain a good physical and mental health. Monitoring our own health ourself is a very good practice, 
+                we can understand our body better. Having a healthy body improves our concentration and hence our we will perform better.
+            </p>
+    
+            <p class="lead">
+                Are you wondering what is holistic health? The word holistic is defined as: “characterized by comprehension of the parts
+                of something as intimately interconnected and explicable only by reference to the whole.” So, when we use the word  
+                in reference to our health, what we mean is the picture of health that includes not only the obvious physical factors, 
+                but mental, emotional, social, and even spiritual factors as well.
+            </p>
+        </body>
+              <img class="picture" src="/static/healthy-living.jpg"/>
+            </div>
+        </div>
+
+      </main>
+
+</html>
