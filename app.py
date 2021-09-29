@@ -18,33 +18,40 @@ def reset_password():
 
 @app.route('/validate', methods=['POST'])
 def validate_user():
-    email = request.form['email']
-    print(email)
-    if User.check_email(email):
-        print("verified")
-        code=send_mail.update_pass(email)
-        session['code']=code
-        return render_template('verification.html')
-    else:
+    try:
+        email = request.form['email']
+        if User.check_email(email):
+            code=send_mail.update_pass(email)
+            session['code']=code
+            return render_template('verification.html')
+        else:
+            return render_template('reset.html',message="a")
+    except:
         return render_template('reset.html',message="a")
 
 @app.route('/verify', methods=['POST'])
 def verify():
-    number = request.form['verification_number']
-    if number==session['code']:
-        return render_template('reset_password.html')
-    else:
-        return render_template('reset.html',message="a")   
+    try:
+        number = request.form['verification_number']
+        if number==session['code']:
+            return render_template('reset_password.html')
+        else:
+            return render_template('reset.html',message="a")   
+    except:
+        return render_template('verification.html', message="a")
 
 @app.route('/update_password', methods=['POST'])  
 def update_password():
-    new_password1=request.form['password1']
-    new_password2=request.form['password2']
-    if new_password1==new_password2:
-        User.update_password(new_password1)
-        return render_template('login.html')
-    else:
-        return render_template('reset_password.html',message="a")   
+    try:    
+        new_password1=request.form['password1']
+        new_password2=request.form['password2']
+        if new_password1==new_password2:
+            User.update_password(new_password1)
+            return render_template('login.html')
+        else:
+            return render_template('reset_password.html',message="a")   
+    except:
+        return render_template('reset_password.html',message="a")
 
 @app.route('/register')
 def register_template():
@@ -56,36 +63,42 @@ def initialize_database():
 
 @app.route('/login', methods=['POST'])
 def login_user():
-    email = request.form['email']
-    password = request.form['password']
+    try:
+        email = request.form['email']
+        password = request.form['password']
 
-    if User.login_valid(email, password):
-        User.login(email)
-        return render_template("home-page.html", name=session['name'])
-    else:
-        return render_template("login.html",message="a")
-    
+        if User.login_valid(email, password):
+            User.login(email)
+            return render_template("home-page.html", name=session['name'])
+        else:
+            return render_template("login.html",message="a")
+    except:
+         return render_template("login.html",message="a")
 
 @app.route('/register/new_user', methods=['POST'])
 def register_user():
-    name = request.form['name']
-    age = int(request.form['age'])
-    gender = request.form['gender']
-    email = request.form['email']
-    password1 = request.form['password1']
-    password2= request.form['password2']
-    height = float(request.form['height'])
-    weight = float(request.form['weight'])
-    if password1==password2:
-        password=password1
-        if send_mail.check(email) is True:
-            if User.register(name,age,gender,height,weight,email,password) is True:
-                return(render_template("home-page.html", name=session['name']))
-            else:
-                return render_template('sign_up.html', message="a")
+    try:
+        name = request.form['name']
+        age = int(request.form['age'])
+        gender = request.form['gender']
+        email = request.form['email']
+        password1 = request.form['password1']
+        password2= request.form['password2']
+        height = float(request.form['height'])
+        weight = float(request.form['weight'])
+        if name and age and gender and email and password1 and password2 and height and weight:
+            if password1==password2:
+                password=password1
+                if send_mail.check(email) is True:
+                    if User.register(name,age,gender,height,weight,email,password) is True:
+                        return(render_template("home-page.html", name=session['name']))
+                    else:
+                        return render_template('sign_up.html', message="a")
+                else:
+                    return render_template('sign_up.html', message="a")
         else:
             return render_template('sign_up.html', message="a")
-    else:
+    except:
         return render_template('sign_up.html', message="a")
 
 @app.route('/login/homepage', methods=['GET'])
@@ -114,17 +127,23 @@ def help():
 
 @app.route('/login/diet/update', methods=['POST'])
 def update_calories_intake():
-    calories = float(request.form['calories'])
-    quantity = int(request.form['quantity'])
-    User.add_calories(calories*quantity)
-    return(render_template("diet.html", name=session['name'],message="a"))
+    try:
+        calories = float(request.form['calories'])
+        quantity = int(request.form['quantity'])
+        User.add_calories(calories*quantity)
+        return(render_template("diet.html", name=session['name'],message="a"))
+    except:
+        return(render_template("diet.html", name=session['name'],message="b"))
 
 @app.route('/login/exercise/update', methods=['POST'])
 def update_calories_burnt():
-    activity = request.form['activity']
-    duration = float(request.form['duration'])
-    User.subtract_calories(activity,duration)
-    return(render_template("exercise.html", name=session['name'],message="a")) 
+    try:
+        activity = request.form['activity']
+        duration = float(request.form['duration'])
+        User.subtract_calories(activity,duration)
+        return(render_template("exercise.html", name=session['name'],message="a")) 
+    except:
+        return(render_template("exercise.html", name=session['name'],message="b")) 
 
 @app.route('/update/user-details', methods=['GET'])
 def update_user_details():   
@@ -132,10 +151,13 @@ def update_user_details():
 
 @app.route('/update/user_details/input', methods=['POST'])
 def update_height_weight():
-    height = float(request.form['height'])
-    weight = float(request.form['weight'])
-    User.update_user_details(height,weight)
-    return(render_template("help.html", name=session['name'],message="a")) 
+    try:
+        height = float(request.form['height'])
+        weight = float(request.form['weight'])
+        User.update_user_details(height,weight)
+        return(render_template("help.html", name=session['name'],message="a"))
+    except:
+        return(render_template("update_user.html", name=session['name'],message="b"))
 
 @app.route('/logout', methods=['GET'])
 def logout():

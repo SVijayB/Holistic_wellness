@@ -7,6 +7,11 @@
         <img class="health" src="/static/health.jpg"/>
         <h1 class="heading">Holistic Wellness</h1>
         <body background="/static/health-bg.jpg">
+            {% if message %}
+            <p class="error">Please enter the valid verification code </p>
+            <p class="error">
+                Please try again!</p>
+            {% endif %}
         <main>
             <div class="box">
             <h1>Reset password</h1>

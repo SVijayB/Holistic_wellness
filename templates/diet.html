@@ -33,9 +33,12 @@
       </ul>
     </div>
     <h1>Look down the menu and select the food you had</h1>
-    {% if message %}
+    {% if message=="a" %}
     <p class="display-5" style="color:red;">Submitted successfully!!! </p>
-  {% endif %}
+    {% elif message=="b" %}  
+    <p class="display-5" style="color:red;">Please enter food item and quantity!!! </p>
+    {% endif %}
+ 
     <p>
       <b>
     <div class="box2">

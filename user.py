@@ -130,10 +130,7 @@ class User:
         today=datetime.datetime.now()
         if today.hour>6 and today.hour<=11:  #breakfast
             if (time.time() - user.time)>43200:
-                if user.breakfast==0:
-                    total=(user.breakfast+cal)*2
-                else:
-                    total=user.breakfast+cal
+                total=(user.breakfast+cal)*2
             else:
                 total=(user.breakfast+cal)*4
             session['breakfast']=total/2
@@ -144,10 +141,7 @@ class User:
 
         if today.hour>=12 and today.hour<=16:  #Lunch
             if (time.time() - user.time)>43200:
-                if user.lunch==0:
-                    total=(user.lunch+cal)*2
-                else:
-                    total=user.lunch+cal
+                total=user.lunch+cal
             else:
                 total=(user.lunch+cal)*4
 
@@ -159,10 +153,7 @@ class User:
         if today.hour>=17 and today.hour<=18:  #Snacks
 
             if (time.time() - user.time)>43200:
-                if user.snacks==0:
-                    total=(user.snacks+cal)*2
-                else:
-                    total=user.snacks+cal
+                total=user.snacks+cal
             else:
                 total=(user.snacks+cal)*4
 
@@ -174,10 +165,7 @@ class User:
         if today.hour>=19 and today.hour<=24:  #Dinner
 
             if (time.time() - user.time)>43200:
-                if user.dinner==0:
-                    total=(user.dinner+cal)*2
-                else:
-                    total=user.dinner+cal
+                total=user.dinner+cal
             else:
                 total=(user.dinner+cal)*4
                     

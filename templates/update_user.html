@@ -10,7 +10,11 @@
       {% block content %}
       <h1 class="display-6" style="color:red;"><b>Welcome {{ name }}</b></h1>
   {% endblock %}  
-
+  {% if message %}
+  <p class="error">Do not leave the forms empty </p>
+  <p class="error">
+      Please try again!</p>
+  {% endif %}
  
         <div class="card text-center">
             <div class="card-header">
