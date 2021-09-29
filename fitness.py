@@ -26,13 +26,13 @@ class Fitness:
     @staticmethod
     def suggest_bmi(bmi):
         if bmi<18.5:
-            suggestion="You fall under under weight! You need to start consuming extra of 300 to 350 calories per day to gradually increase weight. Food items with high protein is recommended."
+            suggestion="You fall under under weight! You need to start consuming more calories everyday to gradually increase weight. Food items with high protein is recommended."
         elif bmi>18.5 and bmi<24.9:
-            suggestion="Congratulations, you are in safe. You can improve your body by taking in a little more calories and start physical activities gradually. If you are an outdoor person, u can join a gym / play sports / jogging. If you are an indoor person, You can start performing yoga"
+            suggestion="Congratulations, you are have a perfect bmi. Keep up the same routine and do include yoga and exercise."
         elif bmi>25 and bmi<30:
-            suggestion="You fall under over weight, For having a healthy body, You need to put down weight. Start consuming more of salads and vegetables and reduce junk food and over eating. Also you need to start having physical activities to burn fat."
+            suggestion="You fall under over weight, For having a healthy body, You need to put down weight. Start consuming more of salads, vegetables and reduce junk food/over eating. Do starting working out to burn excess fat"
         else:
-            suggestion="You are at high risk, You are in need to reduce alot of diet. You can try reducing food intake and start workout. You maybe in need of consulting a dietician and a gym trainer to guide you through."
+            suggestion="You need immediate medical attention, do consult a dietician for getting a diet plan. You need to start burning calories everyday."
         return suggestion
 
     def suggest_calories_breakfast(breakfast,bmi):
