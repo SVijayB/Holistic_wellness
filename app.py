@@ -3,9 +3,14 @@ from user import User
 from flask import Flask,render_template,request, session
 from fitness import Fitness
 import send_mail
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+key = os.getenv('key')
 
 app=Flask(__name__)
-app.secret_key="ash007"
+app.secret_key=key
 
 
 @app.route('/')

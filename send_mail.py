@@ -1,10 +1,13 @@
 import smtplib
 from random import randint
 import re
+from dotenv import load_dotenv
+import os
 
 def update_pass(email):
-    gmailaddress="Holistic.wellness.help@gmail.com"
-    gmailpass="abcd321@"
+    load_dotenv()
+    gmailaddress = os.getenv('gmailaddress')
+    gmailpass = os.getenv('gmailpass')
     mailto=email
     code=str(randint(100000,999999))
     mes=("Your new verification code is " + code)
@@ -13,7 +16,6 @@ def update_pass(email):
     mailServer.starttls()
     mailServer.login(gmailaddress,gmailpass)
     mailServer.sendmail(gmailaddress,mailto,mes)
-    print("\n sent")
     mailServer.quit()
     return code
 
