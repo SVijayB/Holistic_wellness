@@ -213,3 +213,6 @@ def update_height_weight():
 def logout():
     User.logout()
     return render_template("login.html")
+
+
+app.run()

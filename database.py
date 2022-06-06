@@ -1,18 +1,22 @@
 import pymongo
+from dotenv import load_dotenv
+import os
 
 
 class Database(object):
-    URI = "mongodb://127.0.0.1:27017"
+    load_dotenv()
+    URI = os.getenv("MONGO_URI")
     DATABASE = None
 
     @staticmethod
     def initialize():
         client = pymongo.MongoClient(Database.URI)
         Database.DATABASE = client["holistic_wellness"]
+        print(client.list_database_names())
 
     @staticmethod
     def insert(collection, data):
-        return Database.DATABASE[collection].insert(data)
+        return Database.DATABASE[collection].insert_one(data)
 
     @staticmethod
     def find(collection, query):
